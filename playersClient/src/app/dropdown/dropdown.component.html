@@ -1,0 +1,14 @@
+<mat-form-field >
+  <mat-select #select disableRipple (selectionChange)='setRange($event.value)'>
+    <mat-option *ngFor="let field of filterList" [value]="field.key" [disabled]="disableOption(field.key)">{{ field.key }}</mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-button type="button" style="float: right;" (click)='applyFilter(select.value)' placeholder="Filter">Apply filter</button>
+<div disableRipple>
+<ng5-slider [(value)]="options.floor" [(highValue)]="options.ceil" [options]="options"></ng5-slider>
+</div>
+
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
